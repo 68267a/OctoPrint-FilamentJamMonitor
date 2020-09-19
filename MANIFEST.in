@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_filamentjammonitor/templates *
+recursive-include octoprint_filamentjammonitor/translations *
+recursive-include octoprint_filamentjammonitor/static *
