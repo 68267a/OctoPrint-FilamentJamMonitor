@@ -2,8 +2,12 @@
 from pynput import mouse
 import time
 
+counter = 0
+limit = 100
+
 def on_move(x, y):
     #print('Pointer moved to {0}'.format((x, y)))
+    global counter, limit
     counter+=1
     print(counter)
     if counter > limit:
@@ -22,8 +26,6 @@ def on_scroll(x, y, dx, dy):
         'down' if dy < 0 else 'up',
         (x, y)))
 
-counter = 0
-limit = 100
 print(counter)
 # ...or, in a non-blocking fashion:
 listener = mouse.Listener(

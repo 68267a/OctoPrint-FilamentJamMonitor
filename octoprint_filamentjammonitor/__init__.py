@@ -27,7 +27,7 @@ class FilamentJamMonitorPlugin(octoprint.plugin.StartupPlugin,
 
     #https://github.com/jneilliii/OctoPrint-Tasmota/blob/7b8fb53a62d73bad4d7e73012e2db7c738748685/octoprint_tasmota/__init__.py#L257-L261
     def on_print_progress(storage,path,progress):
-        readMouse
+        readMousek
 
 __plugin_name__ = "Filament Jam Monitor"
 __plugin_pythoncompat__ = ">=2.7,<4"
