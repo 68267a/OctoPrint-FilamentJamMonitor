@@ -9,10 +9,6 @@ OctoPrint_FilamentJamMonitor.egg-info/not-zip-safe
 OctoPrint_FilamentJamMonitor.egg-info/requires.txt
 OctoPrint_FilamentJamMonitor.egg-info/top_level.txt
 octoprint_filamentjammonitor/__init__.py
-octoprint_filamentjammonitor/static/css/filamentjammonitor.css
-octoprint_filamentjammonitor/static/js/filamentjammonitor.js
-octoprint_filamentjammonitor/static/less/filamentjammonitor.less
+octoprint_filamentjammonitor/readMouse.py
 octoprint_filamentjammonitor/templates/README.txt
-octoprint_filamentjammonitor/templates/helloworld_navbar.jinja2
-octoprint_filamentjammonitor/templates/helloworld_settings.jinja2
-octoprint_filamentjammonitor/templates/helloworld_tab.jinja2
+octoprint_filamentjammonitor/templates/filamentjammonitor_settings.jinja2
