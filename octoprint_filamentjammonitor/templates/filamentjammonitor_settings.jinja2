@@ -1,21 +1,129 @@
+<h4>{{ _('Filament Jam Monitor') }}</h4>
 <form class="form-horizontal">
+    <!-- 'enabled': True, -->
     <div class="control-group">
-        <label class="control-label">{{ _('URL') }}</label>
-        <div class="controls">
-            <input type="text" class="input-block-level" data-bind="value: settings.plugins.filamentjammonitor.url">
+        <label class="control-label">{{ _('Enabled:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('Enable/Disable  mouse monitoring') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.enabled">
         </div>
     </div>
-</form>
-
-<!--
-
-o | Use Mouse
-o | Use Something else
-
-Monitor interval (print percentage): ___
-Monitor timer (how long to wait):    ___
-Scroll threshold (lines):            ___
-
-
-
--->
+    <!-- 'monitor_method': 'mouse',  #alt: gpio -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Monitor Method:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('Use mouse monitoring, or GPIO') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.monitor_method">
+        </div>
+    </div>
+    <!-- 'mouse_leftclick': '',      #could probably do something here -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Left Click:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('What to do on left click (not implemented)') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.mouse_leftclick">
+        </div>
+    </div>
+    <!-- 'mouse_rightclick': '',     #do something when clicked? -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Mouse right click:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('Do something on right click (not implemented') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.mouse_rightclick">
+        </div>
+    </div>
+    <!-- 'monitor_pin': '',          #not used if monitor_method is mouse -->
+    <div class="control-group">
+        <label class="control-label">{{ _('GPIO monitoring pin:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('If not using Mouse monitoring, use GPIO (not implemented)') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.monitor_pin">
+        </div>
+    </div>
+    <!-- 'poll_style': 'percent',    #alt: timer -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Poll style:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('Percent or Timer (timer not implemented)') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.poll_style">
+        </div>
+    </div>
+    <!-- 'poll_interval': 2,         #every 2% -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Poll Interval:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('If poll style is percent, the value in percentage.') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.poll_interval">
+        </div>
+    </div>
+    <!-- 'poll_timer': 10,           #how long to monitor, in seconds -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Enabled:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('If poll style is timer, the value in seconds') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.enabled">
+        </div>
+    </div>
+    <!-- 'movement_counter': 0,      #DO NOT MODIFY -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Movement Counter (HIDDEN):') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('What number to start counting at. Should be zero') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.movement_counter">
+        </div>
+    </div>
+    <!-- 'movement_threshold': 100,  #How much movement should we detect before it's "ok" -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Movement Threshold:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('How many scroll lines should we detect before it's "OK"') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.movement_threshold">
+        </div>
+    </div>
+    <!-- 'movement_fail_count': 3,   #how many times should the check fail before abort? -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Movement Fail Count:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('How many intervals should fail before taking action') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.movement_fail_count">
+        </div>
+    </div>
+    <!-- 'stop_print': True,         #should we stop the print? -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Stop Print:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('Should the print be stopped if we decide to fail?') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.stop_print">
+        </div>
+    </div>
+    <!-- 'stop_type': 'stop',        #stop or pause -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Stop Type:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('Stop or pause') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.stop_type">
+        </div>
+    </div>
+    <!-- 'notify': False,            #should we notify? (not implemented) -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Notify on failure:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('Should we notify someone? (not implemented)') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.notify">
+        </div>
+    </div>
+    <!-- 'notify_who': ''            #who should we notify? -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Notify How:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('Who/what/how should we notify someone? (not implemented)') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.enabled">
+        </div>
+    </div>
+    <!-- 'usage_enabled': False,     #how much filament was used -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Usage enabled:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('Should we keep track of how much filament was used? (not implemented)') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.usage_enabled">
+        </div>
+    </div>
+    <!-- 'usage_rate': '',           #the amount of filament per scroll? ADVANCED!! -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Usage Rate:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('How much filament is used each time the scroll increments (not implemented') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.enabled">
+        </div>
+    </div>
+    <!-- 'usage_log_location': ''    #where to log filament usage. -->
+    <div class="control-group">
+        <label class="control-label">{{ _('Usage Log Location:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('Where do we store filament usage monitoring') }}">
+            <input type='radio' data-bind="value: settings.plugins.filamentjammonitor.usage_log_location">
+        </div>
+    </div>
+    

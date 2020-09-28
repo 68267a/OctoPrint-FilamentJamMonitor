@@ -26,7 +26,7 @@ class FilamentJamMonitorPlugin(octoprint.plugin.StartupPlugin,
             'stop_print': True,         #should we stop the print?
             'stop_type': 'stop',        #stop or pause
             'notify': False,            #should we notify? (not implemented)
-            'notify_who': ''            #who should we notify?
+            'notify_who': '',            #who should we notify?
             'usage_enabled': False,     #how much filament was used
             'usage_rate': '',           #the amount of filament per scroll? ADVANCED!!
             'usage_log_location': ''    #where to log filament usage.
@@ -46,7 +46,8 @@ class FilamentJamMonitorPlugin(octoprint.plugin.StartupPlugin,
         self._logger.info("Filament Jam Monitor! (more: %s)" % self._settings.get(["url"]))
 
     def filament_moved(x,y):
-        global self.movement_counter, self.movement_threshold
+        global self.movement_counter
+        global self.movement_threshold
         self.movement_counter += 1
     
     def monitor_button(x,y,button,pressed):
